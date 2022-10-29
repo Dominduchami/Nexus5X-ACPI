@@ -1,5 +1,5 @@
-# ACPI Tables for LG Nexus 5X
-(based on [Lumia950XLPkg](https://github.com/WOA-Project/Lumia950XLPkg) ones)
+ACPI Tables for LG Nexus 5X
+(currently they are just unmodified Lumia950XLPkg ones)
 
 Update 12/09/19: PPTT table has been added and ASL C file has
 been provided. However, the table has been pre-compiled and 
@@ -13,7 +13,7 @@ invoked with UEFI builds. Make sure you have iASL in the build
 environment.
 
 All tables except the DSDTs are known to compile properly with
-iasl version 20190108, by simply calling "iasl <name of table>.asl"
+iasl version 20221020, by simply calling "iasl <name of table>.asl"
 
 Unfortunately DSDT is compiled by this version into AML containing
 new opcodes from ACPI 6.x, which Windows doesn't understand.
