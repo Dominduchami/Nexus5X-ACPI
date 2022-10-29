@@ -1,1 +1,0 @@
-# Nexus5X-ACPI
