@@ -40750,21 +40750,21 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8992 ", 0x00000007)
             {
                 Name (RBUF, ResourceTemplate ()
                 {
-                    I2cSerialBusV2 (0x0020, ControllerInitiated, 0x00061A80,
-                        AddressingMode7Bit, "\\_SB.I2C2",
+                    I2cSerialBusV2 (0x004B, ControllerInitiated, 0x00061A80,
+                        AddressingMode7Bit, "\\_SB.I2C1",
                         0x00, ResourceConsumer, , Exclusive,
                         )
                     GpioInt (Edge, ActiveLow, ExclusiveAndWake, PullUp, 0x0000,
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
-                            0x0016
+                            0x004D
                         }
                     GpioIo (Exclusive, PullNone, 0x0000, 0x0000, IoRestrictionNone,
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
-                            0x0008
+                            0x0026
                         }
                 })
                 Return (RBUF) /* \_SB_.TSC1._CRS.RBUF */
