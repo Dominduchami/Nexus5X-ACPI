@@ -20,10 +20,6 @@ DefinitionBlock("dsdt.aml", "DSDT", 0x02, "QCOMM ", "MSM8992 ", 0x00000003)
         Name(RFAS, 0x00010000)
         Device(SDC1)
         {
-            Name(_DEP, Package(One)
-            {
-                \_SB_.PEP0
-            })
             Name(_HID, "QCOM24BF")
             Name(_CID, "ACPIQCOM24BF")
             Name(_UID, Zero)
