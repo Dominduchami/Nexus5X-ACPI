@@ -2,22 +2,22 @@ DefinitionBlock("dsdt.aml", "DSDT", 0x02, "QCOMM ", "MSM8992 ", 0x00000003)
 {
     Scope(\_SB_)
     {
-        Name(SOID, 0x000000FB)
-        Name(SIDS, "MSM8992")
-        Name(SIDV, 0x00010000)
-        Name(SVMJ, 0x0001)
-        Name(SVMI, 0x0000)
-        Name(SDFE, 0x0039)
+        Name(SOID, 0xfb)
+        Name(SIDS, "MSM899200000000")
+        Name(SIDV, 0x10000)
+        Name(SVMJ, One)
+        Name(SVMI, Zero)
+        Name(SDFE, 0x39)
         Name(SFES, "899200000000000")
-        Name(SIDM, 0xFFFF00FF)
+        Name(SIDM, 0xffff00ff)
         Name(NCPU, "6")
-        Name(PSCI, "003")
-        Name(RMTB, 0x06F00000)
-        Name(RMTX, 0x00180000)
-        Name(RFMB, 0x07090000)
-        Name(RFMS, 0x00010000)
-        Name(RFAB, 0x07080000)
-        Name(RFAS, 0x00010000)
+        Name(PSCI, "002")
+        Name(RMTB, 0x6f00000)
+        Name(RMTX, 0x180000)
+        Name(RFMB, 0x7090000)
+        Name(RFMS, 0x10000)
+        Name(RFAB, 0x7080000)
+        Name(RFAS, 0x10000)
         Device(SDC1)
         {
             Name(_HID, "QCOM24BF")
@@ -22651,9 +22651,9 @@ DefinitionBlock("dsdt.aml", "DSDT", 0x02, "QCOMM ", "MSM8992 ", 0x00000003)
                             "PMICVREGVOTE",
                             Package(0xa)
                             {
-                                "PPP_RESOURCE_ID_LDO14_A",
+                                "PPP_RESOURCE_ID_LDO25_A",
                                 One,
-                                0x124f80,
+                                0x1b7740,
                                 0x47e,
                                 One,
                                 Zero,
@@ -22693,7 +22693,7 @@ DefinitionBlock("dsdt.aml", "DSDT", 0x02, "QCOMM ", "MSM8992 ", 0x00000003)
                             "TLMMGPIO",
                             Package(0x6)
                             {
-                                0x3c,
+                                0x8,
                                 One,
                                 Zero,
                                 One,
@@ -22706,7 +22706,7 @@ DefinitionBlock("dsdt.aml", "DSDT", 0x02, "QCOMM ", "MSM8992 ", 0x00000003)
                             "TLMMGPIO",
                             Package(0x6)
                             {
-                                0x3d,
+                                0x16,
                                 One,
                                 Zero,
                                 Zero,
@@ -22732,7 +22732,7 @@ DefinitionBlock("dsdt.aml", "DSDT", 0x02, "QCOMM ", "MSM8992 ", 0x00000003)
                             "PMICVREGVOTE",
                             Package(0xa)
                             {
-                                "PPP_RESOURCE_ID_LDO14_A",
+                                "PPP_RESOURCE_ID_LDO25_A",
                                 One,
                                 Zero,
                                 Zero,
@@ -22766,7 +22766,7 @@ DefinitionBlock("dsdt.aml", "DSDT", 0x02, "QCOMM ", "MSM8992 ", 0x00000003)
                             "TLMMGPIO",
                             Package(0x6)
                             {
-                                0x26,
+                                0x8,
                                 Zero,
                                 Zero,
                                 One,
@@ -22779,7 +22779,7 @@ DefinitionBlock("dsdt.aml", "DSDT", 0x02, "QCOMM ", "MSM8992 ", 0x00000003)
                             "TLMMGPIO",
                             Package(0x6)
                             {
-                                0x3d,
+                                0x16,
                                 One,
                                 Zero,
                                 Zero,
@@ -29770,36 +29770,9 @@ DefinitionBlock("dsdt.aml", "DSDT", 0x02, "QCOMM ", "MSM8992 ", 0x00000003)
                 })
                 While(One)
                 {
-                    Name(_T_0, 0x0)
-                    Store(ToInteger(Arg2, ), _T_0)
-                    If(LEqual(_T_0, 0xc130b0))
+                    If(One)
                     {
-                        Store(PCF1, Local2)
-                    }
-                    Else
-                    {
-                        If(LEqual(_T_0, 0x900000))
-                        {
-                            Store(PCF2, Local2)
-                        }
-                        Else
-                        {
-                            If(LEqual(_T_0, 0xa58047))
-                            {
-                                Store(PCF3, Local2)
-                            }
-                            Else
-                            {
-                                If(LEqual(_T_0, 0x9550bc))
-                                {
-                                    Store(PCF4, Local2)
-                                }
-                                Else
-                                {
-                                    Store(PCFG, Local2)
-                                }
-                            }
-                        }
+                        Store(PCFG, Local2)
                     }
                     Break
                 }
@@ -31883,15 +31856,17 @@ DefinitionBlock("dsdt.aml", "DSDT", 0x02, "QCOMM ", "MSM8992 ", 0x00000003)
             })
             Method(_CRS, 0x0, NotSerialized)
             {
-                Name(RBUF, Buffer(0x49)
+                Name(RBUF, Buffer(0x6c)
                 {
 	0x8e, 0x21, 0x00, 0x01, 0x00, 0x01, 0x02, 0x00, 0x00, 0x01, 0x0e, 0x00,
 	0x80, 0x1a, 0x06, 0x00, 0x20, 0x00, 0x50, 0xc3, 0x00, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x5c, 0x5f, 0x53, 0x42, 0x2e, 0x49, 0x32, 0x43, 0x32, 0x00,
-	0x8c, 0x20, 0x00, 0x01, 0x00, 0x01, 0x00, 0x02, 0x00, 0x01, 0x00, 0x00,
-	0x00, 0x00, 0x17, 0x00, 0x00, 0x19, 0x00, 0x23, 0x00, 0x00, 0x00, 0x3d,
-	0x00, 0x5c, 0x5f, 0x53, 0x42, 0x2e, 0x47, 0x49, 0x4f, 0x30, 0x00, 0x79,
-	0x00
+	0x8c, 0x20, 0x00, 0x01, 0x00, 0x01, 0x00, 0x13, 0x00, 0x01, 0x00, 0x00,
+	0x00, 0x00, 0x17, 0x00, 0x00, 0x19, 0x00, 0x23, 0x00, 0x00, 0x00, 0x16,
+	0x00, 0x5c, 0x5f, 0x53, 0x42, 0x2e, 0x47, 0x49, 0x4f, 0x30, 0x00, 0x8c,
+	0x20, 0x00, 0x01, 0x01, 0x01, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00,
+	0x00, 0x17, 0x00, 0x00, 0x19, 0x00, 0x23, 0x00, 0x00, 0x00, 0x08, 0x00,
+	0x5c, 0x5f, 0x53, 0x42, 0x2e, 0x47, 0x49, 0x4f, 0x30, 0x00, 0x79, 0x00
                 })
                 Return(RBUF)
             }

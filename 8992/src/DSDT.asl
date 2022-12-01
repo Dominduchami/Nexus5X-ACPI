@@ -1,22 +1,17 @@
 DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8992 ", 0x00000003)
 {
-    External (PCF1, IntObj)
-    External (PCF2, IntObj)
-    External (PCF3, IntObj)
-    External (PCF4, IntObj)
-
     Scope (\_SB)
     {
-        Name (SOID, 0x000000FB)
+        Name (SOID, 0xFB)
         Name (SIDS, "MSM899200000000")
         Name (SIDV, 0x00010000)
-        Name (SVMJ, 0x0001)
-        Name (SVMI, 0x0000)
-        Name (SDFE, 0x0039)
+        Name (SVMJ, One)
+        Name (SVMI, Zero)
+        Name (SDFE, 0x39)
         Name (SFES, "899200000000000")
         Name (SIDM, 0xFFFF00FF)
         Name (NCPU, "6")
-        Name (PSCI, "003")
+        Name (PSCI, "002")
         Name (RMTB, 0x06F00000)
         Name (RMTX, 0x00180000)
         Name (RFMB, 0x07090000)
@@ -24663,9 +24658,9 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8992 ", 0x00000003)
                             "PMICVREGVOTE", 
                             Package (0x0A)
                             {
-                                "PPP_RESOURCE_ID_LDO14_A", 
+                                "PPP_RESOURCE_ID_LDO25_A", 
                                 One, 
-                                0x00124F80, 
+                                0x001B7740, 
                                 0x047E, 
                                 One, 
                                 Zero, 
@@ -24708,7 +24703,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8992 ", 0x00000003)
                             "TLMMGPIO", 
                             Package (0x06)
                             {
-                                0x3C, 
+                                0x08, 
                                 One, 
                                 Zero, 
                                 One, 
@@ -24722,7 +24717,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8992 ", 0x00000003)
                             "TLMMGPIO", 
                             Package (0x06)
                             {
-                                0x3D, 
+                                0x16, 
                                 One, 
                                 Zero, 
                                 Zero, 
@@ -24750,7 +24745,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8992 ", 0x00000003)
                             "PMICVREGVOTE", 
                             Package (0x0A)
                             {
-                                "PPP_RESOURCE_ID_LDO14_A", 
+                                "PPP_RESOURCE_ID_LDO25_A", 
                                 One, 
                                 Zero, 
                                 Zero, 
@@ -24786,7 +24781,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8992 ", 0x00000003)
                             "TLMMGPIO", 
                             Package (0x06)
                             {
-                                0x26, 
+                                0x08, 
                                 Zero, 
                                 Zero, 
                                 One, 
@@ -24800,7 +24795,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8992 ", 0x00000003)
                             "TLMMGPIO", 
                             Package (0x06)
                             {
-                                0x3D, 
+                                0x16, 
                                 One, 
                                 Zero, 
                                 Zero, 
@@ -32784,25 +32779,7 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8992 ", 0x00000003)
                 })
                 While (One)
                 {
-                    Name (_T_0, 0x00)  // _T_x: Emitted by ASL Compiler, x=0-9, A-Z
-                    _T_0 = ToInteger (Arg2)
-                    If ((_T_0 == 0x00C130B0))
-                    {
-                        Local2 = PCF1 /* External reference */
-                    }
-                    ElseIf ((_T_0 == 0x00900000))
-                    {
-                        Local2 = PCF2 /* External reference */
-                    }
-                    ElseIf ((_T_0 == 0x00A58047))
-                    {
-                        Local2 = PCF3 /* External reference */
-                    }
-                    ElseIf ((_T_0 == 0x009550BC))
-                    {
-                        Local2 = PCF4 /* External reference */
-                    }
-                    Else
+                    If (One)
                     {
                         Local2 = PCFG /* \_SB_.GPU0._ROM.PCFG */
                     }
@@ -35148,11 +35125,17 @@ DefinitionBlock ("", "DSDT", 2, "QCOMM ", "MSM8992 ", 0x00000003)
                         {
                             0x50, 0xC3, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
                         })
-                    GpioInt (Level, ActiveLow, Exclusive, PullUp, 0x0000,
+                    GpioInt (Edge, ActiveLow, ExclusiveAndWake, PullUp, 0x0000,
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
-                            0x003D
+                            0x0016
+                        }
+                    GpioIo (Exclusive, PullNone, 0x0000, 0x0000, IoRestrictionNone,
+                        "\\_SB.GIO0", 0x00, ResourceConsumer, ,
+                        )
+                        {   // Pin list
+                            0x0008
                         }
                 })
                 Return (RBUF) /* \_SB_.TSC1._CRS.RBUF */
