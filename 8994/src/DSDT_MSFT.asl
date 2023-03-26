@@ -1,5 +1,5 @@
 // CreatorID=MSFT	CreatorRev=5.0.0
-// FileLength=183154	FileChkSum=0xf4
+// FileLength=183136	FileChkSum=0x5e
 
 DefinitionBlock(".\DSDT_MTP.aml", "DSDT", 0x02, "QCOMM ", "MSM8994 ", 0x00000003)
 {
@@ -25,10 +25,6 @@ DefinitionBlock(".\DSDT_MTP.aml", "DSDT", 0x02, "QCOMM ", "MSM8994 ", 0x00000003
         Name(RFAS, 0x77777777)
         Device(SDC1)
         {
-            Name(_DEP, Package(One)
-            {
-                \_SB_.PEP0
-            })
             Name(_HID, "QCOM24BF")
             Name(_CID, "ACPIQCOM24BF")
             Name(_UID, Zero)
