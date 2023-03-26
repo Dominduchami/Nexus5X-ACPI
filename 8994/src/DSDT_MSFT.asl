@@ -1,5 +1,5 @@
 // CreatorID=MSFT	CreatorRev=5.0.0
-// FileLength=183136	FileChkSum=0x5e
+// FileLength=183122	FileChkSum=0x87
 
 DefinitionBlock(".\DSDT_MTP.aml", "DSDT", 0x02, "QCOMM ", "MSM8994 ", 0x00000003)
 {
@@ -860,7 +860,6 @@ DefinitionBlock(".\DSDT_MTP.aml", "DSDT", 0x02, "QCOMM ", "MSM8994 ", 0x00000003
         Device(PEP0)
         {
             Name(_HID, "QCOM2425")
-            Name(_CID, "PNP0D80")
             Name(_CRS, Buffer(0x4a)
             {
 	0x89, 0x06, 0x00, 0x11, 0x01, 0xd8, 0x00, 0x00, 0x00, 0x89, 0x06, 0x00,
